@@ -1,0 +1,128 @@
+@import url("https://rsms.me/inter/inter.css");
+
+html {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: "Inter var", sans-serif;
+  }
+}
+
+/* Template */
+:root {
+  /* Color */
+  --color-main: #000;
+  --color-secondary: #cccccc;
+  --color-accent: #fb5a00;
+
+  /* Font */
+  --weight-normal: 300;
+  --weight-md: 450;
+}
+
+body {
+  background: var(--color-main);
+  text-align: center;
+}
+
+span {
+  font-weight: var(--weight-md);
+}
+
+p {
+  font-size: 0.75rem;
+  font-weight: var(--weight-normal);
+  opacity: 0.65;
+  color: var(--color-main);
+  margin-top: 3.5rem;
+}
+
+p + p {
+  margin-top: -8px;
+}
+
+button {
+  font-size: 1rem;
+  font-weight: var(--weight-md);
+  color: var(--color-main);
+  padding: 1rem 3rem;
+  background: rgba(0, 0, 0, 0);
+  outline: none;
+  border: 0;
+  margin-top: 3.5rem;
+  transition: all 1s ease-out;
+}
+
+button:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+/* Canvas */
+#canvas {
+  margin: 120px auto 0;
+}
+
+/* Main area */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 120px auto 0;
+}
+
+.start-screen {
+  width: 800px;
+  height: 600px;
+  background: var(--color-secondary);
+}
+
+.sun {
+  width: 184px;
+  height: 184px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  position: absolute;
+  z-index: 90;
+  top: 72px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  animation: float 2.5s ease-out 1s 1 normal forwards;
+}
+
+figure {
+  margin-top: 180px;
+  position: relative;
+  z-index: 100;
+}
+
+figure img {
+  width: 250px;
+}
+
+figcaption {
+  font-weight: var(--weight-normal);
+  margin-top: 0.5rem;
+}
+
+@keyframes float {
+  from {
+    top: 104;
+    opacity: 0;
+  }
+
+  to {
+    top: 64px;
+    opacity: 1;
+  }
+}
