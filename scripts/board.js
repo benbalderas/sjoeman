@@ -2,7 +2,6 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const body = document.querySelector('body');
 const container = document.getElementById('intro');
-let frames = 0;
 let timerId;
 
 canvas.width = 1600;
@@ -23,3 +22,23 @@ const scenario = [
     [0, 0, 0, 0, 0, 0, 0, 0],
     [1, 0, 0, 0, 0, 0, 0, 0]
 ];
+
+const buildScenario = () => {
+    let x = 0;
+    let y = 0;
+
+    body.style.background = "#FFF";
+    container.style.display = "none";
+    canvas.style.display = 'block';
+
+    ctx.fillStyle = color_orange_0;
+
+    for (let i = 0; i < scenario.length; i++) {
+        for (let j = 0; j < scenario[i].length; j++) {
+            ctx.fillRect(x, y, 90, 90)
+            x += 100
+        }
+        x = 0
+        y += 100
+    }
+}
