@@ -1,18 +1,16 @@
-ctx.fillStyle = "#EEEEEE"
-
 const buildScenario = () => {
-    let x = 0
-    let y = 0
+    let x = 0;
+    let y = 0;
 
-    for (row in scenario) {
-        // switch (scenario.indexOf(scenario[row])) {
-        //     case 0:
-        //         ctx.fillRect(x, 0, 90, 90)
-        //         break;
+    ctx.fillStyle = color_orange_0;
 
-        // }
-        // x += 100
-        console.log(scenario[0])
+    for (let i = 0; i < scenario.length; i++) {
+        for (let j = 0; j < scenario[i].length; j++) {
+            ctx.fillRect(x, y, 90, 90)
+            x += 100
+        }
+        x = 0
+        y += 100
     }
 }
 
@@ -24,4 +22,5 @@ document.getElementById('start').addEventListener('click', function () {
     canvas.style.display = 'block'
 
     buildScenario();
+    bodvar.draw();
 })

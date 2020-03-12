@@ -1,15 +1,22 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-const body = document.querySelector('body')
-const container = document.getElementById('intro')
+const body = document.querySelector('body');
+const container = document.getElementById('intro');
+let frames = 0;
+let timerId;
 
-canvas.width = 800
-canvas.style.display = 'none'
+canvas.width = 1600;
+canvas.height = 1200;
+canvas.style.width = "800px";
+canvas.style.height = "600px";
+canvas.style.display = 'none';
+ctx.scale(2, 2)
+
+// Theme
+const color_orange_0 = "#F6F4F2";
 
 const scenario = [
     [0, 0, 0, 0, 0, 0, 0, 2],
-    [0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
