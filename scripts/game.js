@@ -6,6 +6,10 @@ function update() {
 
     buildScenario();
     buildActionBar(timerOut);
+
+    // player1.draw()
+    // player2.draw()
+
     bodvar.draw();
 
     timerOut--;
@@ -15,7 +19,7 @@ function update() {
         timerOut = 120;
     }
 
-    if (timerOut === 100 && timerOut > 0) {
+    if (timerOut === 110 && timerOut > 0) {
         bodvar.canMove = false;
     }
 

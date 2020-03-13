@@ -23,19 +23,10 @@ class Character {
         const keyRight = 39;
         const keyDown = 40;
 
-        switch (event.keyCode) {
-            case keyLeft:
-                this.x -= 100
-                break;
-            case keyUp:
-                this.y -= 100
-                break;
-            case keyRight:
-                this.x += 100
-                break;
-            case keyDown:
-                this.y += 100
-        }
+        if (event.keyCode === keyLeft && this.x !== 12) this.x -= 100
+        if (event.keyCode === keyUp && this.y !== 25) this.y -= 100
+        if (event.keyCode === keyRight && this.x !== 712) this.x += 100
+        if (event.keyCode === keyDown && this.y !== 425) this.y += 100
     }
 
     attack() {
@@ -43,4 +34,4 @@ class Character {
     }
 }
 
-const bodvar = new Character("Bödvar", 8, 8, 1, 212, 395)
+const bodvar = new Character("Bödvar", 8, 8, 1, 12, 425);
