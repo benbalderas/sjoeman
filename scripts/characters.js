@@ -1,5 +1,6 @@
 class Character {
     constructor(name, life, power, range, x, y) {
+        this.canMove = false;
         this.name = name;
         this.life = life;
         this.attack = power;

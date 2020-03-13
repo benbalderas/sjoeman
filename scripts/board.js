@@ -12,7 +12,8 @@ canvas.style.display = 'none';
 ctx.scale(2, 2);
 
 // Theme
-const color_orange_0 = "#F6F4F2";
+const color_orange = "#FB5A00";
+const color_beige = "#F6F4F2";
 
 const scenario = [
     [0, 0, 0, 0, 0, 0, 0, 2],
@@ -25,13 +26,13 @@ const scenario = [
 
 const buildScenario = () => {
     let x = 0;
-    let y = 0;
+    let y = 32;
 
     body.style.background = "#FFF";
     container.style.display = "none";
     canvas.style.display = 'block';
 
-    ctx.fillStyle = color_orange_0;
+    ctx.fillStyle = color_beige;
 
     for (let i = 0; i < scenario.length; i++) {
         for (let j = 0; j < scenario[i].length; j++) {
@@ -41,4 +42,17 @@ const buildScenario = () => {
         x = 0
         y += 100
     }
+}
+
+// Draw action bar
+
+const buildActionBar = (width) => {
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(0, 0, 136, 24);
+
+    ctx.fillStyle = color_beige;
+    ctx.fillRect(8, 8, 120, 8);
+
+    ctx.fillStyle = color_orange;
+    ctx.fillRect(8, 8, width, 8);
 }

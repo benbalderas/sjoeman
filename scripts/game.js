@@ -1,23 +1,22 @@
 let timerOut = 120;
-let canMove = false;
+const soundtrack_battle = new Audio('assets/for-battle.mp3');
 
 function update() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     buildScenario();
+    buildActionBar(timerOut);
     bodvar.draw();
+
     timerOut--;
 
     if (timerOut <= 0 && timerOut >= -60) {
-        canMove = true
-        console.log(canMove);
+        bodvar.canMove = true;
         timerOut = 120;
     }
 
     if (timerOut === 100 && timerOut > 0) {
-        canMove = false;
-        
-        console.log(canMove);
+        bodvar.canMove = false;
     }
 
     if (timerId) {
@@ -31,8 +30,10 @@ window.onload = () => {
     };
 
     function startGame() {
+        // soundtrack_battle.play()
+
         addEventListener('keydown', event => {
-            if (canMove) bodvar.move(event)
+            if (bodvar.canMove) bodvar.move(event)
         })
         timerId = requestAnimationFrame(update);
     }
