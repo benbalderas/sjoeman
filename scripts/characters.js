@@ -1,8 +1,8 @@
 class Character {
-    constructor(name, life, attack, range, x, y) {
+    constructor(name, life, power, range, x, y) {
         this.name = name;
         this.life = life;
-        this.attack = attack;
+        this.attack = power;
         this.range = range;
         this.x = x;
         this.y = y;
@@ -24,21 +24,21 @@ class Character {
 
         switch (event.keyCode) {
             case keyLeft:
-                bodvar.x -= 100
+                this.x -= 100
                 break;
             case keyUp:
-                bodvar.y -= 100
+                this.y -= 100
                 break;
             case keyRight:
-                bodvar.x += 100
+                this.x += 100
                 break;
             case keyDown:
-                bodvar.y += 100
+                this.y += 100
         }
     }
 
     attack() {
-        
+        return this.power;
     }
 }
 

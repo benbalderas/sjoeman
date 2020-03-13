@@ -1,4 +1,5 @@
-let timerOut = 120
+let timerOut = 120;
+let canMove = false;
 
 function update() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -7,9 +8,16 @@ function update() {
     bodvar.draw();
     timerOut--;
 
-    if (timerOut <= 0) {
-        console.log('move!');
+    if (timerOut <= 0 && timerOut >= -60) {
+        canMove = true
+        console.log(canMove);
         timerOut = 120;
+    }
+
+    if (timerOut === 100 && timerOut > 0) {
+        canMove = false;
+        
+        console.log(canMove);
     }
 
     if (timerId) {
@@ -24,7 +32,7 @@ window.onload = () => {
 
     function startGame() {
         addEventListener('keydown', event => {
-            bodvar.move(event)
+            if (canMove) bodvar.move(event)
         })
         timerId = requestAnimationFrame(update);
     }
