@@ -1,8 +1,16 @@
+let timerOut = 120
+
 function update() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     buildScenario();
     bodvar.draw();
+    timerOut--;
+
+    if (timerOut <= 0) {
+        console.log('move!');
+        timerOut = 120;
+    }
 
     if (timerId) {
         timerId = requestAnimationFrame(update);
@@ -16,28 +24,13 @@ window.onload = () => {
 
     function startGame() {
         addEventListener('keydown', event => {
-            const keyLeft = 37;
-            const keyUp = 38;
-            const keyRight = 39;
-            const keyDown = 40;
-
-            if (event.keyCode === keyLeft) {
-                bodvar.x -= 100
-            }
-
-            if (event.keyCode === keyUp) {
-                bodvar.y -= 100
-            }
-
-            if (event.keyCode === keyRight) {
-                bodvar.x += 100
-            }
-
-            if (event.keyCode === keyDown) {
-                bodvar.y += 100
-            }
+            bodvar.move(event)
         })
-
         timerId = requestAnimationFrame(update);
     }
 };
+
+// const switchPlayers = () => {
+//     disabilitar a jugador 1
+//     activar jugador 2
+// }

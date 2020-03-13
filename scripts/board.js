@@ -9,7 +9,7 @@ canvas.height = 1200;
 canvas.style.width = "800px";
 canvas.style.height = "600px";
 canvas.style.display = 'none';
-ctx.scale(2, 2)
+ctx.scale(2, 2);
 
 // Theme
 const color_orange_0 = "#F6F4F2";

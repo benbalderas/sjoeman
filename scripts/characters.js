@@ -16,12 +16,29 @@ class Character {
         ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
     }
 
-    move() {
+    move(event) {
+        const keyLeft = 37;
+        const keyUp = 38;
+        const keyRight = 39;
+        const keyDown = 40;
 
+        switch (event.keyCode) {
+            case keyLeft:
+                bodvar.x -= 100
+                break;
+            case keyUp:
+                bodvar.y -= 100
+                break;
+            case keyRight:
+                bodvar.x += 100
+                break;
+            case keyDown:
+                bodvar.y += 100
+        }
     }
 
     attack() {
-
+        
     }
 }
 
