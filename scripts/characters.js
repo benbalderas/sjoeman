@@ -1,3 +1,11 @@
+const sprites = {
+    running: {
+        src: "assets/test-sprite.png",
+        width: 200,
+        height: 200
+    }
+};
+
 class Character {
     constructor(name, life, power, range, x, y) {
         this.canMove = false;
@@ -7,14 +15,36 @@ class Character {
         this.range = range;
         this.x = x;
         this.y = y;
-        this.width = 70;
-        this.height = 90;
-        this.img = new Image();
-        this.img.src = 'assets/test-bodvar.png';
+        this.width = 100;
+        this.height = 100;
+        this.image = new Image();
+        this.image.src = sprites.running.src;
+        this.sx = 0;
+        this.sy = 0;
+        this.sw = sprites.running.width;
+        this.sh = sprites.running.height;
+    }
+
+    changeAction(action) {
+        this.image.src = sprites[action].src;
+        // TODO
+        // change the sx,sy,sw,sh attributes
     }
 
     draw() {
-        ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
+        if (this.sx > 2200) this.sx = 0;
+        ctx.drawImage(
+            this.image,
+            this.sx,
+            this.sy,
+            this.sw,
+            this.sh,
+            this.x,
+            this.y,
+            this.width,
+            this.height
+        );
+        if (frames % 4 === 0) this.sx += 200;
     }
 
     move(event) {
@@ -34,4 +64,4 @@ class Character {
     }
 }
 
-const bodvar = new Character("Bödvar", 8, 8, 1, 12, 425);
+const bodvar = new Character("Bödvar", 8, 8, 1, 0, 420);

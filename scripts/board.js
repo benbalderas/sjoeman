@@ -3,6 +3,7 @@ const ctx = canvas.getContext('2d');
 const body = document.querySelector('body');
 const container = document.getElementById('intro');
 let timerId;
+let frames = 0;
 
 canvas.width = 1600;
 canvas.height = 1200;
