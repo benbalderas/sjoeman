@@ -1,5 +1,5 @@
-let timerOut = 120;
-const soundtrack_battle = new Audio('assets/for-battle.mp3');
+let timerOut = 120; // need to pair to music bpm
+// const soundtrack_battle = new Audio('assets/battle.mp3');
 
 function update() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
