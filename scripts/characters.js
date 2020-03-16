@@ -1,3 +1,8 @@
+const velY = 0;
+const velX = 0;
+const speed = 1;
+const friction = 0.75;
+
 const sprites = {
     waiting: {
         src: "assets/character-1.png",
@@ -20,8 +25,6 @@ class Character {
         this.range = range;
         this.x = x;
         this.y = y;
-        this.speedX = 0.0;
-        this.speedY = 0.0;
         this.width = 100;
         this.height = 100;
         this.image = new Image();
@@ -63,10 +66,18 @@ class Character {
 
         // this.changeAction("jump");
 
-        if (event.keyCode === keyLeft && this.x !== 12) this.x -= 100;
-        if (event.keyCode === keyUp && this.y !== 25) this.y -= 100;
-        if (event.keyCode === keyRight && this.x !== 712) this.x += 100;
-        if (event.keyCode === keyDown && this.y !== 425) this.y += 100;
+        if (event.keyCode === keyLeft && this.x !== 0) {
+            this.x -= 100;
+        }
+        if (event.keyCode === keyUp && this.y !== 20) {
+            this.y -= 100;
+        }
+        if (event.keyCode === keyRight && this.x !== 700) {
+            this.x += 100;
+        }
+        if (event.keyCode === keyDown && this.y !== 420) {
+            this.y += 100;
+        }
     }
 
     attack() {

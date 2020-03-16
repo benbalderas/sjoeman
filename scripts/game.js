@@ -21,7 +21,7 @@ function update() {
         timerOut = 120;
     }
 
-    if (timerOut === 110 && timerOut > 0) {
+    if (timerOut === 90) {
         bodvar.canMove = false;
     }
 
@@ -36,7 +36,7 @@ window.onload = () => {
     };
 
     function startGame() {
-        soundtrack_battle.play()
+        // soundtrack_battle.play()
 
         addEventListener('keydown', event => {
             if (bodvar.canMove) bodvar.move(event)
