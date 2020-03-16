@@ -1,6 +1,11 @@
 const sprites = {
-    running: {
-        src: "assets/test-sprite.png",
+    waiting: {
+        src: "assets/character-1.png",
+        width: 200,
+        height: 200
+    },
+    jump: {
+        src: "assets/character-1-jump.png",
         width: 200,
         height: 200
     }
@@ -15,14 +20,16 @@ class Character {
         this.range = range;
         this.x = x;
         this.y = y;
+        this.speedX = 0.0;
+        this.speedY = 0.0;
         this.width = 100;
         this.height = 100;
         this.image = new Image();
-        this.image.src = sprites.running.src;
+        this.image.src = sprites.waiting.src;
         this.sx = 0;
         this.sy = 0;
-        this.sw = sprites.running.width;
-        this.sh = sprites.running.height;
+        this.sw = sprites.waiting.width;
+        this.sh = sprites.waiting.height;
     }
 
     changeAction(action) {
@@ -32,7 +39,8 @@ class Character {
     }
 
     draw() {
-        if (this.sx > 2200) this.sx = 0;
+        if (this.sx > 5800) this.sx = 0;
+
         ctx.drawImage(
             this.image,
             this.sx,
@@ -44,7 +52,7 @@ class Character {
             this.width,
             this.height
         );
-        if (frames % 4 === 0) this.sx += 200;
+        if (frames % 1 === 0) this.sx += 200;
     }
 
     move(event) {
@@ -53,10 +61,12 @@ class Character {
         const keyRight = 39;
         const keyDown = 40;
 
-        if (event.keyCode === keyLeft && this.x !== 12) this.x -= 100
-        if (event.keyCode === keyUp && this.y !== 25) this.y -= 100
-        if (event.keyCode === keyRight && this.x !== 712) this.x += 100
-        if (event.keyCode === keyDown && this.y !== 425) this.y += 100
+        // this.changeAction("jump");
+
+        if (event.keyCode === keyLeft && this.x !== 12) this.x -= 100;
+        if (event.keyCode === keyUp && this.y !== 25) this.y -= 100;
+        if (event.keyCode === keyRight && this.x !== 712) this.x += 100;
+        if (event.keyCode === keyDown && this.y !== 425) this.y += 100;
     }
 
     attack() {

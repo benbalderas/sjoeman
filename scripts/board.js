@@ -14,7 +14,7 @@ ctx.scale(2, 2);
 
 // Theme
 const color_orange = "#FB5A00";
-const color_beige = "#F6F4F2";
+const color_beige = "#EEEBE7";
 
 const scenario = [
     [0, 0, 0, 0, 0, 0, 0, 2],

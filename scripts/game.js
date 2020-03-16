@@ -1,5 +1,6 @@
 let timerOut = 120; // need to pair to music bpm
-// const soundtrack_battle = new Audio('assets/battle.mp3');
+const soundtrack_battle = new Audio('assets/battle.mp3');
+soundtrack_battle.loop = true;
 
 function update() {
     frames++;
@@ -35,7 +36,7 @@ window.onload = () => {
     };
 
     function startGame() {
-        // soundtrack_battle.play()
+        soundtrack_battle.play()
 
         addEventListener('keydown', event => {
             if (bodvar.canMove) bodvar.move(event)
