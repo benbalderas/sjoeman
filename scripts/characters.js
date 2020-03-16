@@ -9,15 +9,25 @@ const characters = {
             src: "assets/bodvar-jump.png",
             width: 200,
             height: 200
+        },
+        attack: {
+            src: "assets/bodvar-jump.png",
+            width: 200,
+            height: 200
         }
     },
     sigrun: {
         waiting: {
-            src: "assets/bodvar-waiting.png",
+            src: "assets/sigrun-waiting.png",
             width: 200,
             height: 200
         },
         jump: {
+            src: "assets/bodvar-jump.png",
+            width: 200,
+            height: 200
+        },
+        attack: {
             src: "assets/bodvar-jump.png",
             width: 200,
             height: 200
@@ -81,9 +91,10 @@ class Character {
         }
     }
 
-    // make keys dynamic so two players can move
     move(event) {
-        // this.changeAction("jump");
+        // this.changeAction(jump);
+        // TODO: Make voice dynamic depending on character
+        // bodvar_jump.play()
 
         if (event.keyCode === this.controller.keyLeft && this.x !== 0) {
             this.x -= 100;
@@ -100,9 +111,10 @@ class Character {
     }
 
     attack() {
+        // this.changeAction(attack);
         return this.power;
     }
 }
 
 const player1 = new Character(characters.bodvar, 8, 8, 1, 0, 420, controls.controller1);
-const player2 = new Character(characters.sigrun, 4, 4, 8, 700, 0, controls.controller2);
+const player2 = new Character(characters.sigrun, 4, 4, 8, 700, 20, controls.controller2);

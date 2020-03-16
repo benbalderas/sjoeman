@@ -1,28 +1,26 @@
-let timerOut = 120; // need to pair to music bpm
-const soundtrack_battle = new Audio('assets/battle.mp3');
-soundtrack_battle.loop = true;
+let p1Timer = 100;
 
 function update() {
     frames++;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     buildScenario();
-    buildActionBar(timerOut);
-
-    // player1.draw()
-    // player2.draw()
+    buildActionBar(p1Timer);
 
     player1.draw();
+    player2.draw();
 
-    timerOut--;
+    p1Timer--;
 
-    if (timerOut <= 0 && timerOut >= -60) {
+    if (p1Timer <= 0 && p1Timer >= -60) {
         player1.canMove = true;
-        timerOut = 120;
+        player2.canMove = true;
+        p1Timer = 120;
     }
 
-    if (timerOut === 110) {
+    if (p1Timer === 110) {
         player1.canMove = false;
+        player2.canMove = false;
     }
 
     if (timerId) {
@@ -36,10 +34,11 @@ window.onload = () => {
     };
 
     function startGame() {
-        // soundtrack_battle.play()
+        soundtrack_battle.play()
 
         addEventListener('keydown', event => {
             if (player1.canMove) player1.move(event)
+            if (player2.canMove) player2.move(event)
         })
         timerId = requestAnimationFrame(update);
     }

@@ -2,6 +2,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const body = document.querySelector('body');
 const container = document.getElementById('intro');
+
 let timerId;
 let frames = 0;
 
@@ -23,6 +24,12 @@ const controls = {
     }
 }
 
+// Audio
+const soundtrack_battle = new Audio('assets/battle.mp3');
+soundtrack_battle.loop = true;
+const bodvar_jump = new Audio('assets/bodvar-jump.mp3');
+
+// Retina Canvas
 canvas.width = 1600;
 canvas.height = 1200;
 canvas.style.width = "800px";
