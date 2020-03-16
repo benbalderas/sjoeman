@@ -5,6 +5,24 @@ const container = document.getElementById('intro');
 let timerId;
 let frames = 0;
 
+const controls = {
+    controller1: {
+        keyLeft: 65,
+        keyUp: 87,
+        keyRight: 68,
+        keyDown: 83,
+        attack: 18
+    },
+
+    controller2: {
+        keyLeft: 37,
+        keyUp: 38,
+        keyRight: 39,
+        keyDown: 40,
+        attack: 70
+    }
+}
+
 canvas.width = 1600;
 canvas.height = 1200;
 canvas.style.width = "800px";
@@ -15,9 +33,10 @@ ctx.scale(2, 2);
 // Theme
 const color_orange = "#FB5A00";
 const color_beige = "#EEEBE7";
+const color_beige_dark = "#E1DFDD";
 
 const scenario = [
-    [0, 0, 0, 0, 0, 0, 0, 2],
+    [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],

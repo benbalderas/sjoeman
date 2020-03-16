@@ -12,17 +12,17 @@ function update() {
     // player1.draw()
     // player2.draw()
 
-    bodvar.draw();
+    player1.draw();
 
     timerOut--;
 
     if (timerOut <= 0 && timerOut >= -60) {
-        bodvar.canMove = true;
+        player1.canMove = true;
         timerOut = 120;
     }
 
-    if (timerOut === 90) {
-        bodvar.canMove = false;
+    if (timerOut === 110) {
+        player1.canMove = false;
     }
 
     if (timerId) {
@@ -39,7 +39,7 @@ window.onload = () => {
         // soundtrack_battle.play()
 
         addEventListener('keydown', event => {
-            if (bodvar.canMove) bodvar.move(event)
+            if (player1.canMove) player1.move(event)
         })
         timerId = requestAnimationFrame(update);
     }
