@@ -1,25 +1,41 @@
-let p1Timer = 100;
+let p1ATB = 245;
+let p2ATB = 122;
 
 function update() {
     frames++;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     buildScenario();
-    buildActionBar(p1Timer);
+    buildActionBar(p1ATB / 2, 0, color_primary);
+    buildActionBar(p2ATB / 2, 655, color_secondary);
 
+    background.draw();
     player1.draw();
     player2.draw();
+    base.draw();
+    rock1.draw();
+    rock2.draw();
+    rock3.draw();
 
-    p1Timer--;
+    p1ATB--;
 
-    if (p1Timer <= 0 && p1Timer >= -60) {
+    if (p1ATB <= 0 && p1ATB >= -60) {
         player1.canMove = true;
-        player2.canMove = true;
-        p1Timer = 120;
+        p1ATB = 245;
     }
 
-    if (p1Timer === 110) {
+    if (p1ATB === 225) {
         player1.canMove = false;
+    }
+
+    p2ATB--;
+
+    if (p2ATB <= 0 && p2ATB >= -60) {
+        player2.canMove = true;
+        p2ATB = 245;
+    }
+
+    if (p2ATB === 225) {
         player2.canMove = false;
     }
 

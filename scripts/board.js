@@ -38,10 +38,12 @@ canvas.style.display = 'none';
 ctx.scale(2, 2);
 
 // Theme
-const color_orange = "#FB5A00";
+const color_primary = "#8b12ce";
+const color_secondary = "#ea5665";
 const color_beige = "#EEEBE7";
 const color_beige_dark = "#E1DFDD";
 
+// Draw board
 const scenario = [
     [0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
@@ -70,15 +72,40 @@ const buildScenario = () => {
     }
 }
 
+const graphics = {
+    base: "assets/base.png",
+    background: "assets/background.png",
+    rock1: "assets/rock-1.png",
+    rock2: "assets/rock-2.png",
+    rock3: "assets/rock-3.png",
+}
+
+class Graphic {
+    constructor(graphic, x, y, width, height) {
+        this.image = new Image();
+        this.image.src = graphic;
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+    }
+
+    draw() {
+        ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+    }
+}
+
+const base = new Graphic(graphics.base, 0, 482, 800, 40);
+const background = new Graphic(graphics.background, 0, 64, 790, 394);
+const rock1 = new Graphic(graphics.rock1, 200, 371, 90, 51);
+const rock2 = new Graphic(graphics.rock2, 300, 65, 90, 57);
+const rock3 = new Graphic(graphics.rock3, 599, 162, 90, 59);
+
 // Draw action bar
+const buildActionBar = (width, x, color) => {
+    ctx.fillStyle = "#c4c4c4";
+    ctx.fillRect(x + 8, 8, 120, 8);
 
-const buildActionBar = (width) => {
-    ctx.fillStyle = "#000000";
-    ctx.fillRect(0, 0, 136, 24);
-
-    ctx.fillStyle = color_beige;
-    ctx.fillRect(8, 8, 120, 8);
-
-    ctx.fillStyle = color_orange;
-    ctx.fillRect(8, 8, width, 8);
+    ctx.fillStyle = color;
+    ctx.fillRect(x + 8, 8, width, 8);
 }
