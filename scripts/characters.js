@@ -37,10 +37,10 @@ const characters = {
 };
 
 class Character {
-    constructor(character, life, power, range, x, y, controller) {
+    constructor(character, health, power, range, x, y, controller) {
         this.character = character;
-        this.life = life;
-        this.attack = power;
+        this.health = health;
+        this.power = power;
         this.range = range;
         this.x = x;
         this.y = y;
@@ -79,22 +79,31 @@ class Character {
         if (frames % 1 === 0) this.sx += 200;
     }
 
-    stepOn(square) {
-        const toleranceWidth = this.width - 10
-        const toleranceHeight = this.width - 10
+    // stepOn(square) {
+    //     const toleranceWidth = this.width - 10
+    //     const toleranceHeight = this.width - 10
 
-        if (this.x < square.x + square.width &&
-            this.x + toleranceWidth > obstacle.x &&
-            this.y < square.y + square.height &&
-            this.y + toleranceHeight > square.y) {
-            return true
+    //     if (this.x < square.x + square.width &&
+    //         this.x + toleranceWidth > obstacle.x &&
+    //         this.y < square.y + square.height &&
+    //         this.y + toleranceHeight > square.y) {
+    //         return true
+    //     }
+    // }
+
+    attack(receiver, event) {
+        if (event.keyCode === this.controller.attack) {
+            // this.changeAction("attack");
+            receiver.health -= this.power;
+            console.log("attacked");
         }
     }
 
-    move(event) {
-        // this.changeAction(jump);
+    action(event) {
         // TODO: Make voice dynamic depending on character
         // bodvar_jump.play()
+
+        // use set time out maybe? to make the character animate jump
 
         if (event.keyCode === this.controller.keyLeft && this.x !== 0) {
             this.x -= 100;
@@ -103,18 +112,14 @@ class Character {
             this.y -= 100;
         }
         if (event.keyCode === this.controller.keyRight && this.x !== 700) {
-            this.x += 100
+            this.changeAction("jump");
+            this.x += 100;
         }
         if (event.keyCode === this.controller.keyDown && this.y !== 420) {
             this.y += 100;
         }
     }
-
-    attack() {
-        // this.changeAction(attack);
-        return this.power;
-    }
 }
 
-const player1 = new Character(characters.bodvar, 8, 8, 1, 0, 420, controls.controller1);
-const player2 = new Character(characters.sigrun, 4, 4, 8, 700, 20, controls.controller2);
+const player1 = new Character(characters.bodvar, 8, 2, 1, 0, 420, controls.controller1);
+const player2 = new Character(characters.sigrun, 6, 1, 8, 700, 20, controls.controller2);

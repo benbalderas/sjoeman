@@ -12,7 +12,7 @@ const controls = {
         keyUp: 87,
         keyRight: 68,
         keyDown: 83,
-        attack: 18
+        attack: 70
     },
 
     controller2: {
@@ -20,7 +20,7 @@ const controls = {
         keyUp: 38,
         keyRight: 39,
         keyDown: 40,
-        attack: 70
+        attack: 18
     }
 }
 
@@ -104,8 +104,19 @@ const rock3 = new Graphic(graphics.rock3, 599, 162, 90, 59);
 // Draw action bar
 const buildActionBar = (width, x, color) => {
     ctx.fillStyle = "#c4c4c4";
-    ctx.fillRect(x + 8, 8, 120, 8);
+    ctx.fillRect(x, 16, 120, 8);
 
     ctx.fillStyle = color;
-    ctx.fillRect(x + 8, 8, width, 8);
+    ctx.fillRect(x, 16, width, 8);
+}
+
+const buildHealth = (x, health) => {
+    ctx.fillStyle = "#fe0200";
+    ctx.beginPath();
+
+    for (let i = 0; i < health; i++) {
+        ctx.arc(x + 4, 4, 4, 0, 2 * Math.PI);
+        ctx.fill();
+        x += 12;
+    }
 }
