@@ -41,6 +41,7 @@ const color_primary = "#8b12ce";
 const color_secondary = "#ea5665";
 const color_beige = "#EEEBE7";
 const color_beige_dark = "#E1DFDD";
+const cornerRadius = 10;
 
 // Draw board
 const scenario = [
@@ -60,10 +61,14 @@ const buildScenario = () => {
     canvas.style.display = 'block';
 
     ctx.fillStyle = color_beige;
+    ctx.strokeStyle = color_beige;
 
     for (let i = 0; i < scenario.length; i++) {
         for (let j = 0; j < scenario[i].length; j++) {
-            ctx.fillRect(x, y, 90, 90)
+            ctx.fillRect(x, y, 80, 80);
+            ctx.strokeRect(x, y, 80, 80);
+            ctx.lineJoin = "round";
+            ctx.lineWidth = cornerRadius;
             x += 100
         }
         x = 0
