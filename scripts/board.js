@@ -25,8 +25,7 @@ const controls = {
 }
 
 // Audio
-const soundtrack_battle = new Audio('assets/battle.mp3');
-soundtrack_battle.loop = true;
+const soundtrack_battle = new Audio('assets/battle.ogg');
 const bodvar_jump = new Audio('assets/bodvar-jump.mp3');
 
 // Retina Canvas
