@@ -40,17 +40,16 @@ window.onload = () => {
     };
 
     function startGame() {
-        soundtrack_battle.play();
-        console.log(soundtrack_battle.duration);
+        // soundtrack_battle.play();
 
-        soundtrack_battle.addEventListener('timeupdate', function () {
-            let buffer = .25;
+        // soundtrack_battle.addEventListener('timeupdate', function () {
+        //     let buffer = .25;
 
-            if (this.currentTime > this.duration - buffer) {
-                this.currentTime = 0
-                this.play()
-            }
-        });
+        //     if (this.currentTime > this.duration - buffer) {
+        //         this.currentTime = 0
+        //         this.play()
+        //     }
+        // });
 
         addEventListener('keydown', event => {
             if (player1.canMove) player1.action(event);

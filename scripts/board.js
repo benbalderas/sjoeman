@@ -39,7 +39,7 @@ ctx.scale(2, 2);
 // Theme
 const color_primary = "#8b12ce";
 const color_secondary = "#ea5665";
-const color_beige = "#EEEBE7";
+const color_beige = "#EFF3F3";
 const color_beige_dark = "#E1DFDD";
 const cornerRadius = 10;
 
@@ -53,8 +53,8 @@ const scenario = [
 ];
 
 const buildScenario = () => {
-    let x = 0;
-    let y = 32;
+    let x = 8;
+    let y = 63;
 
     body.style.background = "#FFF";
     container.style.display = "none";
@@ -65,14 +65,11 @@ const buildScenario = () => {
 
     for (let i = 0; i < scenario.length; i++) {
         for (let j = 0; j < scenario[i].length; j++) {
-            ctx.fillRect(x, y, 80, 80);
-            ctx.strokeRect(x, y, 80, 80);
-            ctx.lineJoin = "round";
-            ctx.lineWidth = cornerRadius;
+            ctx.fillRect(x, y, 91, 91);
             x += 100
         }
-        x = 0
-        y += 100
+        x = 8;
+        y += 99;
     }
 }
 

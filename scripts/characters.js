@@ -37,11 +37,11 @@ const characters = {
 };
 
 class Character {
-    constructor(character, health, power, range, x, y, controller) {
+    constructor(character, health, power, x, y, controller) {
         this.character = character;
         this.health = health;
         this.power = power;
-        this.range = range;
+        this.funkMeter = 0;
         this.x = x;
         this.y = y;
         this.controller = controller;
@@ -92,18 +92,17 @@ class Character {
     // }
 
     attack(receiver, event) {
-        if (event.keyCode === this.controller.attack) {
+        if (event.keyCode === this.controller.attack && this.funkMeter === 4) {
             // this.changeAction("attack");
             receiver.health -= this.power;
-            console.log("attacked");
+            this.funkMeter = 0;
         }
     }
 
     action(event) {
         // TODO: Make voice dynamic depending on character
         // bodvar_jump.play()
-
-        // use set time out maybe? to make the character animate jump
+        this.funkMeter++
 
         if (event.keyCode === this.controller.keyLeft && this.x !== 0) {
             this.x -= 100;
@@ -121,5 +120,5 @@ class Character {
     }
 }
 
-const player1 = new Character(characters.bodvar, 8, 2, 1, 0, 420, controls.controller1);
-const player2 = new Character(characters.sigrun, 6, 1, 8, 700, 20, controls.controller2);
+const player1 = new Character(characters.bodvar, 8, 2, 0, 420, controls.controller1);
+const player2 = new Character(characters.sigrun, 6, 1, 700, 20, controls.controller2);

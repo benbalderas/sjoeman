@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  background: var(--color-main);
+  background: #FFF;
   text-align: center;
   transition: all 0.75s ease-out;
 }
@@ -36,29 +36,27 @@ span {
 p {
   font-size: 0.75rem;
   font-weight: var(--weight-normal);
-  opacity: 0.65;
   color: var(--color-main);
-  margin-top: 3.5rem;
 }
 
 p+p {
-  margin-top: -8px;
+  margin-top: 0px;
 }
 
 button {
   font-size: 1rem;
   font-weight: var(--weight-md);
-  color: var(--color-main);
-  padding: 1rem 3rem;
-  background: rgba(0, 0, 0, 0);
+  color: #FFF;
+  padding: 1.5rem 2rem;
+  background: #341CEF;
   outline: none;
   border: 0;
-  margin-top: 3.5rem;
+  margin-top: 120px;
   transition: all 1s ease-out;
 }
 
 button:hover {
-  background: rgba(0, 0, 0, 0.15);
+  background: #9F1CEF;
 }
 
 .disabled {
@@ -77,19 +75,20 @@ button:hover {
   justify-content: center;
   align-items: center;
   position: relative;
-  margin: 120px auto 0;
+  margin: 80px auto 0;
 }
 
 .start-screen {
   width: 800px;
   height: 600px;
-  background: var(--color-secondary);
+  background: #FFF;
 }
 
 .sun {
-  width: 184px;
-  height: 184px;
-  background: var(--color-accent);
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(181deg, #8a10cd, #0a22ff, #ff1b44, #0a22ff, #8a10cd);
+  background-size: 1000% 1000%;
   border-radius: 50%;
   position: absolute;
   z-index: 90;
@@ -99,7 +98,7 @@ button:hover {
   margin-left: auto;
   margin-right: auto;
   opacity: 0;
-  animation: float 2.5s ease-out 1s 1 normal forwards;
+  animation: float 2.5s ease-out 1s 1 normal forwards, glow 4s ease infinite;
 }
 
 figure {
@@ -109,12 +108,23 @@ figure {
 }
 
 figure img {
-  width: 250px;
+  width: 372px;
 }
 
 figcaption {
   font-weight: var(--weight-normal);
   margin-top: 0.5rem;
+}
+
+footer {
+  margin: 120px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer p {
+  margin-left: 8px;
 }
 
 @keyframes float {
@@ -124,7 +134,21 @@ figcaption {
   }
 
   to {
-    top: 64px;
+    top: 84px;
     opacity: 1;
+  }
+}
+
+@keyframes glow {
+  0% {
+    background-position: 51% 0%
+  }
+
+  50% {
+    background-position: 50% 100%
+  }
+
+  100% {
+    background-position: 51% 0%
   }
 }
