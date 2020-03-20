@@ -78,20 +78,23 @@ class Character {
     }
 
     action(event) {
-        this.funkMeter++
-
         if (event.keyCode === this.controller.keyLeft && this.x !== 0) {
             this.x -= 100;
+            if (this.funkMeter !== 4) this.funkMeter++
         }
         if (event.keyCode === this.controller.keyUp && this.y !== 20) {
             this.y -= 100;
+            if (this.funkMeter !== 4) this.funkMeter++
         }
         if (event.keyCode === this.controller.keyRight && this.x !== 700) {
             this.changeAction("jump");
             this.x += 100;
+            if (this.funkMeter !== 4) this.funkMeter++
         }
         if (event.keyCode === this.controller.keyDown && this.y !== 420) {
+            this.changeAction("waiting");
             this.y += 100;
+            if (this.funkMeter !== 4) this.funkMeter++
         }
     }
 
@@ -105,4 +108,4 @@ class Character {
 }
 
 const player1 = new Character(characters.p1, 4, 1, 0, 440, controls.controller1);
-const player2 = new Character(characters.p2, 2, 2, 700, 40, controls.controller2);
+const player2 = new Character(characters.p2, 3, 2, 700, 40, controls.controller2);

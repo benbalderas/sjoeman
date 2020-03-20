@@ -9,7 +9,7 @@ function update() {
 
     buildFunkMeter(32, player1.funkMeter);
     buildFunkMeter(676, player2.funkMeter);
-    
+
     buildHealth(32, player1.health);
     buildHealth(676, player2.health);
 
@@ -25,11 +25,13 @@ function update() {
 
     if (atb <= 5 && atb >= -60) {
         player1.canMove = true;
+        player2.canMove = true;
         atb = 60;
     }
 
-    if (atb === 50) {
+    if (atb === 55) {
         player1.canMove = false;
+        player2.canMove = false;
     }
 
     if (timerId) {
@@ -38,29 +40,29 @@ function update() {
 }
 
 window.onload = () => {
-    document.getElementById('start').onclick = () => {
+    document.getElementById("start").onclick = () => {
         startGame();
     };
 
     function startGame() {
-        soundtrack_battle.play();
+        // soundtrack_battle.play();
 
-        soundtrack_battle.addEventListener('timeupdate', function () {
-            let buffer = .25;
+        // soundtrack_battle.addEventListener('timeupdate', function () {
+        //     let buffer = .25;
 
-            if (this.currentTime > this.duration - buffer) {
-                this.currentTime = 0;
-                this.play();
-            }
-        });
+        //     if (this.currentTime > this.duration - buffer) {
+        //         this.currentTime = 0;
+        //         this.play();
+        //     }
+        // });
 
-        addEventListener('keydown', event => {
+        addEventListener("keydown", event => {
             if (player1.canMove) player1.action(event);
             if (player1.canMove) player1.attack(player2, event);
 
             if (player2.canMove) player2.action(event);
             if (player1.canMove) player2.attack(player1, event);
-        })
+        });
         timerId = requestAnimationFrame(update);
     }
 };

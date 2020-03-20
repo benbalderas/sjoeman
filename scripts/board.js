@@ -116,8 +116,8 @@ const buildHealth = (x, health) => {
     image.src = "assets/board/lyfe.png";
 
     for (let i = 0; i < health; i++) {
-        ctx.drawImage(image, x, 8, 18, 15);
-        x += 22;
+        ctx.drawImage(image, x, 8, 15, 12);
+        x += 19;
     }
 }
 
@@ -128,7 +128,7 @@ const buildFunkMeter = (x, funkAmount) => {
     if (funkAmount < 4) {
         ctx.fillStyle = "#000000";
     } else {
-        ctx.fillStyle = "#9F17EA";
+        ctx.fillStyle = "#ff3132";
     }
     ctx.fillRect(x, 40, funkAmount * 24, 3);
 }
