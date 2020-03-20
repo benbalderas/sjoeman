@@ -1,4 +1,4 @@
-let atb = 120;
+let atb = 60;
 
 function update() {
     frames++;
@@ -6,7 +6,7 @@ function update() {
 
     buildScenario();
 
-    buildActionBar(atb, 0, color_primary);
+    buildActionBar(atb * 2, 0, color_primary);
     buildHealth(0, player1.health);
     buildHealth(670, player2.health);
 
@@ -20,12 +20,12 @@ function update() {
 
     atb--;
 
-    if (atb <= 10 && atb >= -60) {
+    if (atb <= 5 && atb >= -60) {
         player1.canMove = true;
-        atb = 120;
+        atb = 60;
     }
 
-    if (atb === 110) {
+    if (atb === 50) {
         player1.canMove = false;
     }
 
@@ -40,16 +40,16 @@ window.onload = () => {
     };
 
     function startGame() {
-        // soundtrack_battle.play();
+        soundtrack_battle.play();
 
-        // soundtrack_battle.addEventListener('timeupdate', function () {
-        //     let buffer = .25;
+        soundtrack_battle.addEventListener('timeupdate', function () {
+            let buffer = .25;
 
-        //     if (this.currentTime > this.duration - buffer) {
-        //         this.currentTime = 0
-        //         this.play()
-        //     }
-        // });
+            if (this.currentTime > this.duration - buffer) {
+                this.currentTime = 0
+                this.play()
+            }
+        });
 
         addEventListener('keydown', event => {
             if (player1.canMove) player1.action(event);

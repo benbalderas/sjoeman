@@ -25,8 +25,8 @@ const controls = {
 }
 
 // Audio
-const soundtrack_battle = new Audio('assets/battle.ogg');
-const bodvar_jump = new Audio('assets/bodvar-jump.mp3');
+const soundtrack_battle = new Audio('assets/audio/battle.ogg');
+const bodvar_jump = new Audio('assets/audio/bodvar-jump.mp3');
 
 // Retina Canvas
 canvas.width = 1600;
@@ -74,11 +74,11 @@ const buildScenario = () => {
 }
 
 const graphics = {
-    base: "assets/base.png",
-    background: "assets/background.png",
-    rock1: "assets/rock-1.png",
-    rock2: "assets/rock-2.png",
-    rock3: "assets/rock-3.png",
+    base: "assets/board/base.png",
+    background: "assets/board/background.png",
+    rock1: "assets/board/rock-1.png",
+    rock2: "assets/board/rock-2.png",
+    rock3: "assets/board/rock-3.png",
 }
 
 class Graphic {

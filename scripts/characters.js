@@ -1,34 +1,34 @@
 const characters = {
-    bodvar: {
+    p1: {
         waiting: {
-            src: "assets/bodvar-waiting.png",
+            src: "assets/characters/p1-waiting.png",
             width: 200,
             height: 200
         },
         jump: {
-            src: "assets/bodvar-jump.png",
+            src: "assets/characters/p1-jump.png",
             width: 200,
             height: 200
         },
         attack: {
-            src: "assets/bodvar-jump.png",
+            src: "assets/characters/p1-jump.png",
             width: 200,
             height: 200
         }
     },
-    sigrun: {
+    p2: {
         waiting: {
-            src: "assets/sigrun-waiting.png",
+            src: "assets/characters/p2-waiting.png",
             width: 200,
             height: 200
         },
         jump: {
-            src: "assets/bodvar-jump.png",
+            src: "assets/characters/p1-jump.png",
             width: 200,
             height: 200
         },
         attack: {
-            src: "assets/bodvar-jump.png",
+            src: "assets/characters/p1-jump.png",
             width: 200,
             height: 200
         }
@@ -120,5 +120,5 @@ class Character {
     }
 }
 
-const player1 = new Character(characters.bodvar, 8, 2, 0, 420, controls.controller1);
-const player2 = new Character(characters.sigrun, 6, 1, 700, 20, controls.controller2);
+const player1 = new Character(characters.p1, 8, 2, 0, 440, controls.controller1);
+const player2 = new Character(characters.p2, 6, 1, 700, 40, controls.controller2);
