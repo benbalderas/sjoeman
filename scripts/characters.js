@@ -58,8 +58,6 @@ class Character {
 
     changeAction(action) {
         this.image.src = this.character[action].src;
-        // TODO
-        // change the sx,sy,sw,sh attributes
     }
 
     draw() {
@@ -79,29 +77,7 @@ class Character {
         if (frames % 1 === 0) this.sx += 200;
     }
 
-    // stepOn(square) {
-    //     const toleranceWidth = this.width - 10
-    //     const toleranceHeight = this.width - 10
-
-    //     if (this.x < square.x + square.width &&
-    //         this.x + toleranceWidth > obstacle.x &&
-    //         this.y < square.y + square.height &&
-    //         this.y + toleranceHeight > square.y) {
-    //         return true
-    //     }
-    // }
-
-    attack(receiver, event) {
-        if (event.keyCode === this.controller.attack && this.funkMeter === 4) {
-            // this.changeAction("attack");
-            receiver.health -= this.power;
-            this.funkMeter = 0;
-        }
-    }
-
     action(event) {
-        // TODO: Make voice dynamic depending on character
-        // bodvar_jump.play()
         this.funkMeter++
 
         if (event.keyCode === this.controller.keyLeft && this.x !== 0) {
@@ -118,7 +94,15 @@ class Character {
             this.y += 100;
         }
     }
+
+    attack(receiver, event) {
+        if (event.keyCode === this.controller.attack && this.funkMeter === 4) {
+            // this.changeAction("attack");
+            receiver.health -= this.power;
+            this.funkMeter = 0;
+        }
+    }
 }
 
-const player1 = new Character(characters.p1, 8, 2, 0, 440, controls.controller1);
-const player2 = new Character(characters.p2, 6, 1, 700, 40, controls.controller2);
+const player1 = new Character(characters.p1, 4, 1, 0, 440, controls.controller1);
+const player2 = new Character(characters.p2, 2, 2, 700, 40, controls.controller2);

@@ -2,6 +2,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const body = document.querySelector('body');
 const container = document.getElementById('intro');
+const header = document.getElementById('player-names');
 
 let timerId;
 let frames = 0;
@@ -26,7 +27,6 @@ const controls = {
 
 // Audio
 const soundtrack_battle = new Audio('assets/audio/battle.ogg');
-const bodvar_jump = new Audio('assets/audio/bodvar-jump.mp3');
 
 // Retina Canvas
 canvas.width = 1600;
@@ -59,9 +59,9 @@ const buildScenario = () => {
     body.style.background = "#FFF";
     container.style.display = "none";
     canvas.style.display = 'block';
+    header.style.opacity = '1';
 
     ctx.fillStyle = color_beige;
-    ctx.strokeStyle = color_beige;
 
     for (let i = 0; i < scenario.length; i++) {
         for (let j = 0; j < scenario[i].length; j++) {
@@ -104,20 +104,31 @@ const rock3 = new Graphic(graphics.rock3, 607, 194, 90, 59);
 
 // Draw action bar
 const buildActionBar = (width, x, color) => {
-    ctx.fillStyle = "#c4c4c4";
-    ctx.fillRect(x, 16, 120, 8);
+    ctx.fillStyle = "#C1CACA";
+    ctx.fillRect(x, 40, 120, 3);
 
     ctx.fillStyle = color;
-    ctx.fillRect(x, 16, width, 8);
+    ctx.fillRect(x, 40, width, 3);
 }
 
 const buildHealth = (x, health) => {
-    ctx.fillStyle = "#fe0200";
-    ctx.beginPath();
+    const image = new Image();
+    image.src = "assets/board/lyfe.png";
 
     for (let i = 0; i < health; i++) {
-        ctx.arc(x + 4, 4, 4, 0, 2 * Math.PI);
-        ctx.fill();
-        x += 12;
+        ctx.drawImage(image, x, 8, 18, 15);
+        x += 22;
     }
+}
+
+const buildFunkMeter = (x, funkAmount) => {
+    ctx.fillStyle = "#C1CACA";
+    ctx.fillRect(x, 40, 96, 3);
+
+    if (funkAmount < 4) {
+        ctx.fillStyle = "#000000";
+    } else {
+        ctx.fillStyle = "#9F17EA";
+    }
+    ctx.fillRect(x, 40, funkAmount * 24, 3);
 }

@@ -5,10 +5,13 @@ function update() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     buildScenario();
+    buildActionBar(atb * 2, 352, color_primary);
 
-    buildActionBar(atb * 2, 0, color_primary);
-    buildHealth(0, player1.health);
-    buildHealth(670, player2.health);
+    buildFunkMeter(32, player1.funkMeter);
+    buildFunkMeter(676, player2.funkMeter);
+    
+    buildHealth(32, player1.health);
+    buildHealth(676, player2.health);
 
     background.draw();
     player1.draw();
@@ -46,21 +49,18 @@ window.onload = () => {
             let buffer = .25;
 
             if (this.currentTime > this.duration - buffer) {
-                this.currentTime = 0
-                this.play()
+                this.currentTime = 0;
+                this.play();
             }
         });
 
         addEventListener('keydown', event => {
             if (player1.canMove) player1.action(event);
             if (player1.canMove) player1.attack(player2, event);
+
             if (player2.canMove) player2.action(event);
+            if (player1.canMove) player2.attack(player1, event);
         })
         timerId = requestAnimationFrame(update);
     }
 };
-
-// const switchPlayers = () => {
-//     disabilitar a jugador 1
-//     activar jugador 2
-// }

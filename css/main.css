@@ -63,6 +63,17 @@ button:hover {
   opacity: 0.5;
 }
 
+/* Header */
+header {
+  width: 800px;
+  margin: 80px auto -120px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  transition: all 1s;
+}
+
 /* Canvas */
 #canvas {
   margin: 120px auto 0;
