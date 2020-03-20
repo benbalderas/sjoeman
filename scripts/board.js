@@ -96,11 +96,11 @@ class Graphic {
     }
 }
 
-const base = new Graphic(graphics.base, 0, 482, 800, 40);
-const background = new Graphic(graphics.background, 0, 64, 790, 394);
-const rock1 = new Graphic(graphics.rock1, 200, 371, 90, 51);
-const rock2 = new Graphic(graphics.rock2, 300, 65, 90, 57);
-const rock3 = new Graphic(graphics.rock3, 599, 162, 90, 59);
+const base = new Graphic(graphics.base, 8, 510, 800, 40);
+const background = new Graphic(graphics.background, 8, 97, 790, 394);
+const rock1 = new Graphic(graphics.rock1, 208, 400, 90, 51);
+const rock2 = new Graphic(graphics.rock2, 308, 97, 90, 57);
+const rock3 = new Graphic(graphics.rock3, 607, 194, 90, 59);
 
 // Draw action bar
 const buildActionBar = (width, x, color) => {
