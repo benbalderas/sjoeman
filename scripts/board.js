@@ -17,7 +17,8 @@ const controls = {
         keyUp: 87,
         keyRight: 68,
         keyDown: 83,
-        attack: 70
+        attack: 70,
+        cheat: 13
     },
 
     controller2: {
@@ -25,12 +26,15 @@ const controls = {
         keyUp: 38,
         keyRight: 39,
         keyDown: 40,
-        attack: 18
+        attack: 18,
+        cheat: 13
     }
 }
 
 // Audio
 const soundtrack_battle = new Audio('assets/audio/battle.ogg');
+const soundtrack_story = new Audio('assets/audio/story.ogg');
+const soundtrack_end = new Audio('assets/audio/end.ogg');
 
 // Retina Canvas
 canvas.width = 1600;

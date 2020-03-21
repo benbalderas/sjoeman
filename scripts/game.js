@@ -9,7 +9,20 @@ const gameOver = (winner) => {
     gameOverMessage.style.opacity = '1';
     timerId = undefined;
 
-    soundtrack_battle.stop();
+    courtain1.classList.add('courtain-animation-1');
+    courtain2.classList.add('courtain-animation-2');
+
+    soundtrack_battle.pause();
+    soundtrack_end.play();
+
+    soundtrack_end.addEventListener('timeupdate', function () {
+        let buffer = .35;
+
+        if (this.currentTime > this.duration - buffer) {
+            this.currentTime = 0;
+            this.play();
+        }
+    });
 
     return true;
 }
@@ -68,20 +81,39 @@ window.onload = () => {
         courtain2.classList.add('courtain-animation-2');
         story.style.display = "block";
         story.style.opacity = 1;
+
+        soundtrack_story.play();
+
+        soundtrack_story.addEventListener('timeupdate', function () {
+            let buffer = .25;
+
+            if (this.currentTime > this.duration - buffer) {
+                this.currentTime = 0;
+                this.play();
+            }
+        });
+
+        setTimeout(function () {
+            courtain1.classList.remove('courtain-animation-1');
+            courtain2.classList.remove('courtain-animation-2');
+        }, 1000);
     };
 
     document.getElementById("start").onclick = () => {
-        courtain1.classList.remove('courtain-animation-1');
-        courtain2.classList.remove('courtain-animation-2');
+        courtain1.classList.add('courtain-animation-1');
+        courtain2.classList.add('courtain-animation-2');
 
         startGame();
 
-        courtain1.classList.add('courtain-animation-1');
-        courtain2.classList.add('courtain-animation-2');
+        setTimeout(function () {
+            courtain1.classList.remove('courtain-animation-1');
+            courtain2.classList.remove('courtain-animation-2');
+        }, 1000);
     };
 
     function startGame() {
         story.style.display = "none";
+        soundtrack_story.pause();
         soundtrack_battle.play();
 
         soundtrack_battle.addEventListener('timeupdate', function () {
