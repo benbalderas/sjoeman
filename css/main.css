@@ -51,6 +51,23 @@ h1 {
   animation: glow 1.5s ease-out infinite;
 }
 
+h2 {
+  font-family: "Lyyra Extended", sans-serif;
+  text-align: center;
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+h3 {
+  font-size: 16px;
+  text-align: center;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 56px;
+  opacity: 0.75;
+}
+
 span {
   font-weight: var(--weight-md);
 }
@@ -110,12 +127,12 @@ button:hover {
   display: none;
 }
 
-.courtain.color-1 {
+#courtain-color-1 {
   background: #FF1B44;
   z-index: 9999;
 }
 
-.courtain.color-2 {
+#courtain-color-2 {
   background: #0A22FF;
   z-index: 9998;
 }
@@ -129,6 +146,36 @@ button:hover {
   display: block;
   animation: swipe 0.5s ease-out forwards;
   animation-delay: 0.25s;
+}
+
+#story {
+  width: 640px;
+  height: 520px;
+  padding: 40px 80px;
+  overflow: scroll;
+  background: #000;
+  margin: 120px auto 0;
+  color: #FFF;
+  display: none;
+  opacity: 0;
+  transition: all 2s ease-out;
+}
+
+#story p {
+  font-size: 20px;
+  color: #FFF;
+  line-height: 1.75em;
+}
+
+#story button {
+  margin-top: 40px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 56px;
 }
 
 /* Header */

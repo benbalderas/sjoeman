@@ -9,6 +9,8 @@ const gameOver = (winner) => {
     gameOverMessage.style.opacity = '1';
     timerId = undefined;
 
+    soundtrack_battle.stop();
+
     return true;
 }
 
@@ -60,21 +62,36 @@ function update() {
 }
 
 window.onload = () => {
+    document.getElementById("story-trigger").onclick = () => {
+        container.style.display = "none";
+        courtain1.classList.add('courtain-animation-1');
+        courtain2.classList.add('courtain-animation-2');
+        story.style.display = "block";
+        story.style.opacity = 1;
+    };
+
     document.getElementById("start").onclick = () => {
+        courtain1.classList.remove('courtain-animation-1');
+        courtain2.classList.remove('courtain-animation-2');
+
         startGame();
+
+        courtain1.classList.add('courtain-animation-1');
+        courtain2.classList.add('courtain-animation-2');
     };
 
     function startGame() {
-        // soundtrack_battle.play();
+        story.style.display = "none";
+        soundtrack_battle.play();
 
-        // soundtrack_battle.addEventListener('timeupdate', function () {
-        //     let buffer = .25;
+        soundtrack_battle.addEventListener('timeupdate', function () {
+            let buffer = .25;
 
-        //     if (this.currentTime > this.duration - buffer) {
-        //         this.currentTime = 0;
-        //         this.play();
-        //     }
-        // });
+            if (this.currentTime > this.duration - buffer) {
+                this.currentTime = 0;
+                this.play();
+            }
+        });
 
         addEventListener("keydown", event => {
             if (player1.canMove) player1.action(event);

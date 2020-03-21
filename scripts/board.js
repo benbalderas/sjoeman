@@ -4,6 +4,9 @@ const body = document.querySelector('body');
 const container = document.getElementById('intro');
 const header = document.getElementById('player-names');
 const gameOverMessage = document.getElementById('gameOver');
+const story = document.getElementById('story');
+const courtain1 = document.getElementById('courtain-color-1');
+const courtain2 = document.getElementById('courtain-color-2');
 
 let timerId;
 let frames = 0;
@@ -58,7 +61,6 @@ const buildScenario = () => {
     let y = 63;
 
     body.style.background = "#FFF";
-    container.style.display = "none";
     canvas.style.display = 'block';
     header.style.opacity = '1';
 
