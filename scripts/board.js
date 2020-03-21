@@ -18,7 +18,7 @@ const controls = {
         keyRight: 68,
         keyDown: 83,
         attack: 70,
-        cheat: 13
+        cheat: 81
     },
 
     controller2: {
@@ -27,7 +27,7 @@ const controls = {
         keyRight: 39,
         keyDown: 40,
         attack: 18,
-        cheat: 13
+        cheat: 189
     }
 }
 
