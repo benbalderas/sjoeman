@@ -1,5 +1,14 @@
 @import url("https://rsms.me/inter/inter.css");
 
+@font-face {
+  font-family: 'Lyyra Extended';
+  src: url('../fonts/LyyraExtended-Black.woff2') format('woff2'),
+    url('../fonts/LyyraExtended-Black.woff') format('woff'),
+    url('../fonts/LyyraExtended-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
 html {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
@@ -27,6 +36,19 @@ body {
   background: #FFF;
   text-align: center;
   transition: all 0.75s ease-out;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-family: "Lyyra Extended", sans-serif;
+  text-align: center;
+  font-size: 56px;
+  background: linear-gradient(181deg, #8a10cd, #0a22ff, #ff1b44, #0a22ff, #8a10cd);
+  background-size: 1000% 1000%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 1.5s ease-out infinite;
 }
 
 span {
@@ -61,6 +83,52 @@ button:hover {
 
 .disabled {
   opacity: 0.5;
+}
+
+/* Game utilities */
+#gameOver {
+  width: 361px;
+  height: 75px;
+  position: absolute;
+  left: 50%;
+  margin-left: -180px;
+  top: 50%;
+  margin-top: -37px;
+  z-index: 9997;
+  opacity: 0;
+  transition: all 2s ease;
+}
+
+.courtain {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.courtain.color-1 {
+  background: #FF1B44;
+  z-index: 9999;
+}
+
+.courtain.color-2 {
+  background: #0A22FF;
+  z-index: 9998;
+}
+
+.courtain-animation-1 {
+  display: block;
+  animation: swipe 0.5s ease-out forwards;
+}
+
+.courtain-animation-2 {
+  display: block;
+  animation: swipe 0.5s ease-out forwards;
+  animation-delay: 0.25s;
 }
 
 /* Header */
@@ -160,5 +228,15 @@ footer p {
 
   100% {
     background-position: 51% 0%
+  }
+}
+
+@keyframes swipe {
+  0% {
+    width: 100vw;
+  }
+
+  100% {
+    width: 0;
   }
 }

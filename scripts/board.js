@@ -3,6 +3,7 @@ const ctx = canvas.getContext('2d');
 const body = document.querySelector('body');
 const container = document.getElementById('intro');
 const header = document.getElementById('player-names');
+const gameOverMessage = document.getElementById('gameOver');
 
 let timerId;
 let frames = 0;

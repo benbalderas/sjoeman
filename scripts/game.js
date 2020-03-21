@@ -1,5 +1,17 @@
 let atb = 60;
 
+const gameOver = (winner) => {
+    clearInterval(timerId);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#000000";
+    ctx.font = "500 24px Avenir";
+    ctx.fillText(`${winner} wins!`, 320, 356);
+    gameOverMessage.style.opacity = '1';
+    timerId = undefined;
+
+    return true;
+}
+
 function update() {
     frames++;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -36,6 +48,14 @@ function update() {
 
     if (timerId) {
         timerId = requestAnimationFrame(update);
+    }
+
+    if (player1.health === 0) {
+        gameOver(player2.name);
+    }
+
+    if (player2.health === 0) {
+        gameOver(player1.name);
     }
 }
 

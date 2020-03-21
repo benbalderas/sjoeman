@@ -11,7 +11,7 @@ const characters = {
             height: 200
         },
         attack: {
-            src: "assets/characters/p1-jump.png",
+            src: "assets/characters/p1-attack.png",
             width: 200,
             height: 200
         }
@@ -37,7 +37,8 @@ const characters = {
 };
 
 class Character {
-    constructor(character, health, power, x, y, controller) {
+    constructor(character, name, health, power, x, y, controller) {
+        this.name = name;
         this.character = character;
         this.health = health;
         this.power = power;
@@ -87,7 +88,6 @@ class Character {
             if (this.funkMeter !== 4) this.funkMeter++
         }
         if (event.keyCode === this.controller.keyRight && this.x !== 700) {
-            this.changeAction("jump");
             this.x += 100;
             if (this.funkMeter !== 4) this.funkMeter++
         }
@@ -100,12 +100,12 @@ class Character {
 
     attack(receiver, event) {
         if (event.keyCode === this.controller.attack && this.funkMeter === 4) {
-            // this.changeAction("attack");
+            this.changeAction("attack");
             receiver.health -= this.power;
             this.funkMeter = 0;
         }
     }
 }
 
-const player1 = new Character(characters.p1, 4, 1, 0, 440, controls.controller1);
-const player2 = new Character(characters.p2, 3, 2, 700, 40, controls.controller2);
+const player1 = new Character(characters.p1, "Balzäry", 4, 3, 0, 440, controls.controller1);
+const player2 = new Character(characters.p2, "Kiedîs", 3, 2, 700, 40, controls.controller2);
